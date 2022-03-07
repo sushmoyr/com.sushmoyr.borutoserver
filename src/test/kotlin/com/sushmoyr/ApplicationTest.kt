@@ -11,15 +11,9 @@ import io.ktor.response.*
 import kotlin.test.*
 import io.ktor.server.testing.*
 import com.sushmoyr.plugins.*
+import org.junit.After
+import org.koin.core.context.GlobalContext.stopKoin
 
 class ApplicationTest {
-    @Test
-    fun testRoot() {
-        withTestApplication({ configureRouting() }) {
-            handleRequest(HttpMethod.Get, "/").apply {
-                assertEquals(HttpStatusCode.OK, response.status())
-                assertEquals("Hello World!", response.content)
-            }
-        }
-    }
+
 }

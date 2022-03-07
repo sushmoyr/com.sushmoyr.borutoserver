@@ -1,16 +1,22 @@
 package com.sushmoyr.plugins
 
+import com.sushmoyr.routes.getAllHeroes
+import com.sushmoyr.routes.root
 import io.ktor.routing.*
 import io.ktor.http.*
 import io.ktor.application.*
+import io.ktor.http.content.*
 import io.ktor.response.*
 import io.ktor.request.*
 
 fun Application.configureRouting() {
 
     routing {
-        get("/") {
-            call.respondText("Hello World!")
+        root()
+        getAllHeroes()
+
+        static("/images") {
+            resources("images")
         }
     }
 }
